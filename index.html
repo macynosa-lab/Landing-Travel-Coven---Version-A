@@ -212,6 +212,37 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
   }
   .pill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 12px var(--gold); }
 
+  .urgency-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600;
+    color: #fff; padding: 7px 16px;
+    border-radius: 100px; margin-top: 16px;
+    background: linear-gradient(90deg, var(--rose), var(--bordeaux));
+    box-shadow: 0 4px 18px rgba(194,40,107,0.4);
+    letter-spacing: 0.04em;
+  }
+  .urgency-badge .u-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #fff; flex-shrink: 0;
+    animation: pulse-ring 1.8s ease-out infinite;
+    box-shadow: 0 0 0 0 rgba(255,255,255,0.6);
+  }
+  @keyframes blink-dot {
+    0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
+  }
+  .urgency-badge .u-dot { animation: blink-dot 1.4s ease-in-out infinite; }
+
+  .cta-urgency-bar {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: linear-gradient(90deg, rgba(194,40,107,0.1), rgba(250,185,64,0.1));
+    border: 1px solid rgba(194,40,107,0.25);
+    border-radius: 14px; padding: 12px 20px; margin-bottom: 24px;
+    font-size: 13.5px; color: var(--rose); font-weight: 600; line-height: 1.4;
+    text-align: left;
+  }
+  .cta-urgency-bar .fire-icon { font-size: 20px; flex-shrink: 0; }
+  .cta-urgency-bar strong { color: var(--amethyst); }
+
   .hero-h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(44px, 9vw, 84px);
@@ -2682,6 +2713,10 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
     <div class="hero-cta-stack fade-up d4">
       <a href="https://wa.me/528681983600?text=Hola%20Macy!%20Vi%20tu%20landing%20y%20quiero%20saber%20m%C3%A1s%20sobre%20The%20Travel%20Coven%20%F0%9F%94%AE" class="btn-wa-primary" target="_blank" rel="noopener">Agenda tu sesión informativa por WhatsApp
 →</a>
+      <div class="urgency-badge">
+        <span class="u-dot"></span>
+        Solo acepto 15 mujeres al mes — para seguimiento personalizado
+      </div>
     </div>
     <div class="hero-microtrust fade-up d5">
       <div class="av-stack">
@@ -3777,6 +3812,10 @@ identificas con
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg>
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg>
       </div>
+      <div class="cta-urgency-bar">
+        <span class="fire-icon">🔥</span>
+        <span>Solo acepto <strong>15 mujeres al mes</strong> para garantizar mentoría personalizada. Asegura tu lugar este mes.</span>
+      </div>
       <p class="cta-title">¿Lista para tener más de un ingreso?</p>
       <p class="cta-sub">Déjame tus datos y te contacto en menos de 24 horas.</p>
       <div class="form">
@@ -3976,6 +4015,14 @@ identificas con
     msg += `\nMi WhatsApp: ${telefono}`;
     if (utmSource)  msg += `\nLlegué desde: ${utmSource}`;
     if (utmContent) msg += `\nVideo: ${utmContent}`;
+    // Evento Lead al pixel de Meta
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead', {
+        content_name: utmCampaign || 'travel-coven',
+        content_category: utmSource || 'direct'
+      });
+    }
+
     window.open(`https://wa.me/528681983600?text=${encodeURIComponent(msg)}`, '_blank');
 
     // Estado: enviado
