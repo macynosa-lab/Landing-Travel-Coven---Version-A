@@ -2684,6 +2684,235 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
   }
 
   /* ═══════════════════════════════════════════
+     PAIN STRIP · PROOF BAR · EARLY CTA
+     ═══════════════════════════════════════════ */
+
+  /* Pain Strip */
+  .pain-strip {
+    background: var(--lavender-soft);
+    padding: 72px 24px 80px;
+  }
+  .pain-strip-inner {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .pain-strip-hed {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+  .pain-strip-hed .lbl { margin-bottom: 10px; }
+  .pain-strip-hed .h2 { font-size: clamp(26px, 4vw, 38px); }
+  .pain-cols {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 0 40px;
+    align-items: start;
+  }
+  .pain-col-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .pain-col .pain-col-label { color: var(--ink-mute); }
+  .sol-col .pain-col-label { color: var(--rose); }
+  .pain-list, .sol-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .pain-list li {
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    padding-left: 28px;
+    position: relative;
+  }
+  .pain-list li::before {
+    content: '✗';
+    position: absolute; left: 0;
+    color: var(--ink-mute);
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .sol-list li {
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    padding-left: 28px;
+    position: relative;
+  }
+  .sol-list li::before {
+    content: '✓';
+    position: absolute; left: 0;
+    color: var(--rose);
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .pain-divider-line {
+    background: var(--border);
+    align-self: stretch;
+    min-height: 200px;
+  }
+  @media (max-width: 720px) {
+    .pain-cols { grid-template-columns: 1fr; gap: 32px 0; }
+    .pain-divider-line { display: none; }
+  }
+
+  /* Proof Bar */
+  .proof-bar {
+    background: var(--amethyst);
+    padding: 52px 24px;
+  }
+  .proof-bar-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    text-align: center;
+  }
+  .proof-stat {
+    padding: 8px 12px;
+  }
+  .proof-stat + .proof-stat {
+    border-left: 1px solid rgba(255,255,255,0.12);
+  }
+  .proof-stat-n {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3.5vw, 36px);
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .proof-stat-l {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  @media (max-width: 720px) {
+    .proof-bar-inner { grid-template-columns: repeat(2, 1fr); }
+    .proof-stat:nth-child(2) { border-left: 1px solid rgba(255,255,255,0.12); }
+    .proof-stat:nth-child(3) { border-left: none; border-top: 1px solid rgba(255,255,255,0.12); }
+    .proof-stat:nth-child(4) { border-left: 1px solid rgba(255,255,255,0.12); border-top: 1px solid rgba(255,255,255,0.12); }
+  }
+
+  /* Early CTA */
+  .early-cta {
+    background: linear-gradient(135deg, var(--rose-deep) 0%, var(--bordeaux) 100%);
+    padding: 64px 24px;
+    text-align: center;
+  }
+  .early-cta-inner {
+    max-width: 580px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .early-cta-hed {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3.5vw, 34px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .early-cta-hed em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .early-cta-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    max-width: 400px;
+  }
+  .early-cta-note {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+  .early-cta-guarantee {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.08);
+    border-radius: 100px;
+    padding: 8px 16px;
+  }
+  .early-cta-guarantee svg { flex-shrink: 0; }
+
+  /* Final CTA section updates */
+  .final-cta-sec {
+    background: linear-gradient(180deg, var(--amethyst-deep) 0%, #0d051a 100%);
+    padding: 80px 24px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta-sec::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(194,40,107,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .final-cta-inner {
+    position: relative; z-index: 2;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .final-cta-hed {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+  }
+  .final-cta-hed em {
+    font-style: italic;
+    background: linear-gradient(90deg, var(--gold), #ffd57e, var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .final-cta-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+  .final-cta-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .final-cta-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  .final-cta-badge {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.07);
+    border-radius: 100px;
+    padding: 6px 14px;
+  }
+
+  /* ═══════════════════════════════════════════
      VSL — Video Masterclass Section
      ═══════════════════════════════════════════ */
 
@@ -3076,72 +3305,107 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- ─────────── WORDMARK / FULL LOGO ─────────── -->
-<section class="wordmark-banner">
-  <div class="wordmark-banner-inner">
-    <div class="wordmark-stars">
-      <span class="y2k-star"></span>
-      <span class="y2k-star"></span>
-      <span class="y2k-star"></span>
+<!-- ─────────── PAIN STRIP ─────────── -->
+<section class="pain-strip">
+  <div class="pain-strip-inner">
+    <div class="pain-strip-hed">
+      <p class="lbl rv">¿Esto te suena familiar?</p>
+      <h2 class="h2 rv">Si buscas más que un solo sueldo,<br><em>este modelo es para ti.</em></h2>
     </div>
-    <img class="tc-wm-logo" src="assets/travel-coven-logo.png" alt="The Travel Coven crest">
-    <div class="tc-wm-the">The</div>
-    <div class="tc-wm-name">Travel <em>Coven</em></div>
-    <div class="tc-wm-tagline">MUJERES · VIAJES · INGRESOS · NEGOCIOS DIGITALES</div>
-    <p class="wordmark-tag">Una comunidad de mujeres que cobra en dólares desde casa aplicando su conocimiento en tecnología, social media y turismo digital.</p>
-    <div class="wordmark-seals">
-      <div class="seal">
-        <span class="seal-top">negocio</span>
-        <span class="seal-main" style="font-size:18px;">flexible</span>
-        <span class="seal-bottom">desde casa</span>
+    <div class="pain-cols">
+      <div class="pain-col">
+        <span class="pain-col-label">Lo que estás viviendo:</span>
+        <ul class="pain-list">
+          <li>Tu sueldo no alcanza para todo lo que necesitas y mereces</li>
+          <li>Trabajas muchas horas y tu dinero no crece al mismo ritmo</li>
+          <li>Ya organizas viajes para familia y amigos — ¡sin cobrar!</li>
+          <li>Intentaste otros negocios y ninguno escaló de verdad</li>
+          <li>Quieres algo tuyo, sin depender de un solo patrón</li>
+        </ul>
       </div>
-      <div class="seal seal-rose">
-        <span class="seal-top">Hasta</span>
-        <span class="seal-main">15%</span>
-        <span class="seal-bottom">comisión</span>
-      </div>
-      <div class="seal seal-amethyst">
-        <span class="seal-top">+130</span>
-        <span class="seal-main" style="font-size:15px;">proveedores</span>
-        <span class="seal-bottom">top mundo</span>
-      </div>
-      <div class="seal">
-        <span class="seal-top">+5</span>
-        <span class="seal-main" style="font-size:17px;">ingresos</span>
-        <span class="seal-bottom">pasivos</span>
+      <div class="pain-divider-line"></div>
+      <div class="sol-col">
+        <span class="pain-col-label">Lo que cambia con el Coven:</span>
+        <ul class="sol-list">
+          <li>Comisiones reales en dólares por viajes que la gente ya quiere comprar</li>
+          <li>100% remoto — tu celular, tu horario, tu ritmo de vida</li>
+          <li>130+ proveedores top mundiales trabajando contigo desde el día 1</li>
+          <li>Capacitación, mentoría 1:1 y comunidad de mujeres que ya lo hace</li>
+          <li>Un modelo que crece con tiempo y puede ser tu ingreso principal</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─────────── TRUTH ─────────── -->
+<!-- ─────────── PROOF BAR ─────────── -->
+<section class="proof-bar">
+  <div class="proof-bar-inner">
+    <div class="proof-stat">
+      <div class="proof-stat-n">130+</div>
+      <div class="proof-stat-l">proveedores globales top</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-stat-n">Hasta 15%</div>
+      <div class="proof-stat-l">de comisión por venta</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-stat-n">6+</div>
+      <div class="proof-stat-l">fuentes de ingreso disponibles</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-stat-n">10 días</div>
+      <div class="proof-stat-l">de garantía de reembolso</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── EARLY CTA #1 ─────────── -->
+<section class="early-cta">
+  <div class="early-cta-inner">
+    <p class="early-cta-hed">¿Ya viste el masterclass<br>y estás <em>lista para empezar?</em></p>
+    <p class="early-cta-sub">Escríbeme por WhatsApp y te mando el link de registro con los pasos exactos. Te respondo en menos de 24 horas.</p>
+    <a href="https://wa.me/528681983600?text=Hola%20Macy!%20Ya%20vi%20el%20masterclass%20y%20quiero%20unirme%20al%20Coven%20%F0%9F%94%AE" class="btn-wa-primary" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white" style="width:20px;height:20px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Quiero unirme al Coven →
+    </a>
+    <div class="early-cta-guarantee">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      10 días de garantía · Cancelas cuando quieras · Sin contrato anual
+    </div>
+    <p class="early-cta-note">Desde $49.98 USD/mes · Inscripción gratis en Basics y Essentials</p>
+  </div>
+</section>
+
+<!-- ─────────── TRUTH (condensada) ─────────── -->
 <section class="truth">
   <div class="si">
-    <p class="lbl rv">La realidad, bestie</p>
-    <h2 class="h2 rv">Un solo sueldo<br>ya no es <em>suficiente.</em></h2>
-    <p class="body-text rv">Y no es porque seas mala con el dinero. Es porque el sistema está diseñado así. La salida real es construir más de una fuente de ingreso, antes de que lo necesites con urgencia.</p>
+    <p class="lbl rv">El modelo</p>
+    <h2 class="h2 rv">Vender viajes es diferente<br>a todo lo que <em>conoces.</em></h2>
+    <p class="body-text rv">No es un curso más. No es revender productos. Es un modelo con comisiones reales — en dólares — sobre algo que la gente ya quiere comprar. No tienes que convencer a nadie de querer viajar. Solo te posicionas como la experta de confianza.</p>
     <div class="truth-grid">
       <div class="truth-card">
         <div class="truth-num">01</div>
-        <div class="truth-title">Tu sueldo no crece al ritmo de tu vida</div>
-        <div class="truth-desc">Los gastos suben, los proyectos terminan, los clientes se van. Un solo ingreso es un punto de falla.</div>
+        <div class="truth-title">Comisiones reales en dólares</div>
+        <div class="truth-desc">Un crucero familiar o un todo incluido puede dejarte cientos de dólares en una sola reservación. No centavos por clic.</div>
       </div>
       <div class="truth-card">
         <div class="truth-num">02</div>
-        <div class="truth-title">El tiempo extra que tienes vale dinero</div>
-        <div class="truth-desc">Si sabes de redes, de ventas, de organizar experiencias, ya tienes las habilidades. Solo te falta el modelo correcto.</div>
+        <div class="truth-title">Lo haces desde donde ya estás</div>
+        <div class="truth-desc">Tu celular, tu horario, sin oficina ni inventario. Se adapta a tu vida, no al revés.</div>
       </div>
       <div class="truth-card">
         <div class="truth-num">03</div>
-        <div class="truth-title">Los side hustles que conoces no escalan</div>
-        <div class="truth-desc">Vender cositas en marketplace, convertirte en neni de punto medio, hacer postres... Todos requieren grandes inversiones y rentar establecimientos o gastar en traslados y envíos.</div>
+        <div class="truth-title">Creces con base sólida</div>
+        <div class="truth-desc">A los 3–6 meses con consistencia, los ingresos se vuelven predecibles. No es magia, es un sistema con mentoría real.</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CHANGES section removed — content integrated into Pain Strip -->
 <!-- ─────────── CHANGES ─────────── -->
-<section class="changes">
+<section class="changes" style="display:none">
   <div class="si">
     <p class="lbl rv">Por qué los viajes</p>
     <h2 class="h2 rv">Vender viajes es<br>diferente a todo<br>lo que <em>conoces.</em></h2>
@@ -3188,7 +3452,7 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
 </section>
 
 <!-- ─────────── NICHES / PROVIDERS ─────────── -->
-<section class="niches">
+<section class="niches" style="display:none">
   <div class="si">
     <p class="lbl rv">Tus nichos y proveedores</p>
     <h2 class="h2 rv">Eliges lo que<br><em>te apasiona vender.</em></h2>
@@ -3270,7 +3534,7 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
 </section>
 
 <!-- ─────────── INCOME ─────────── -->
-<section class="income">
+<section class="income" style="display:none">
   <div class="si">
     <p class="lbl rv">Lo que puedes generar</p>
     <h2 class="h2 rv">Ingresos reales.<br>A tu <em>ritmo.</em></h2>
@@ -3338,7 +3602,7 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
 </section>
 
 <!-- ─────────── COMMUNITY ─────────── -->
-<section class="comunidad">
+<section class="comunidad" style="display:none">
   <div class="si">
     <p class="lbl rv">No emprendes sola</p>
     <h2 class="h2 rv">Bienvenida a la<br><em>secta digital.</em></h2>
@@ -3913,7 +4177,7 @@ Comencé a dar entrenamientos de redes sociales para el team y decidí armar el 
 </section>
 
 <!-- ─────────── FOR YOU ─────────── -->
-<section class="foryou">
+<section class="foryou" style="display:none">
   <div class="si">
     <p class="lbl rv">¿QUÉ NECESITAS PARA ENTRAR?</p>
     <h2 class="h2 rv">Si te
@@ -4169,12 +4433,52 @@ identificas con
   </div>
 </section>
 
-<!-- ─────────── CTA ─────────── -->
-<section class="cta-sec" id="unete">
+<!-- ─────────── FAQ (antes del cierre final) ─────────── -->
+<section class="faq" id="faq-vsl">
   <div class="si">
-    <p class="lbl lbl-center rv">El siguiente paso</p>
-    <h2 class="h2 rv" style="text-align:center;">Una conversación.<br>Sin <em>compromiso.</em></h2>
-    <p class="body-text rv" style="text-align:center; margin: 0 auto;">Mira el masterclass de 15 minutos arriba, llena el formulario y te mando por WhatsApp el link de registro con todos los pasos para empezar.</p>
+    <p class="lbl rv">Preguntas frecuentes</p>
+    <h2 class="h2 rv">Lo que siempre<br><em>preguntan.</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">¿Necesito dejar mi trabajo para hacer esto?<span class="faq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">No. La mayoría de las agentes en mi equipo tienen trabajos, proyectos o familias (incluida yo). Este modelo se construye en paralelo a lo que ya tienes. No lo reemplaza hasta que tú decidas que está listo para hacerlo.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">¿Necesito experiencia en turismo?<span class="faq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">Nadita. Yo venía de la publicidad digital. La certificación y la capacitación vienen incluidas. Tú aprendes el modelo desde cero con estructura real.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">¿Cuánto se invierte para empezar?<span class="faq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">Hay <strong>3 planes</strong>:<br><br>
+          <strong>Basics — $49.98 USD/mes:</strong> 50% de comisión por venta.<br><br>
+          <strong>Essentials — $79.98 USD/mes:</strong> 80% de comisión por venta.<br><br>
+          <strong>Bundle — $299 USD el primer mes, luego $79.98 USD/mes:</strong> 80% de comisión + hasta $1,000 USD en créditos para viajes + ticket a la convención anual (valor $350) + boleto para la rifa mensual de viaje a Hawaii (valor $5,000 USD).<br><br>
+          Todos los planes son mensuales, sin contrato anual. <a href="#inversion" style="color:var(--rose);text-decoration:underline;font-weight:600;">Ver el desglose completo aquí →</a></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">¿Cuándo empieza a generar ingresos reales?<span class="faq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">Los primeros meses son de aprendizaje y primeras ventas. A los 3 a 6 meses con consistencia, el ingreso se vuelve predecible. No te prometo millones en 30 días. Te prometo un proceso real con acompañamiento.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">¿Es un esquema MLM?<span class="faq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-ans"><div class="faq-ans-inner">El modelo base es venta de viajes reales con comisiones reales. También puedes construir un equipo de agentes y ganar bonos por eso, pero el negocio principal es vender viajes, no reclutar. Esa diferencia importa y la explico con transparencia total.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── FINAL CTA ─────────── -->
+<section class="final-cta-sec" id="unete">
+  <div class="final-cta-inner">
+    <div class="urgency-badge" style="margin-bottom:24px;">
+      <span class="u-dot"></span>
+      Solo acepto 15 mujeres al mes — seguimiento personalizado garantizado
+    </div>
+    <h2 class="final-cta-hed">Este mes hay lugar.<br>¿Lo <em>tomas?</em></h2>
+    <p class="final-cta-sub">Déjame tus datos y te mando por WhatsApp el link de registro con los pasos exactos. Sin compromiso, sin spam.</p>
+  </div>
+
+  <div class="si" style="position:relative;z-index:2;padding-top:0;">
     <div class="cta-box rv">
       <div class="cta-sparks">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg>
@@ -4184,8 +4488,8 @@ identificas con
         <span class="fire-icon">🔥</span>
         <span>Solo acepto <strong>15 mujeres al mes</strong> para garantizar mentoría personalizada. Asegura tu lugar este mes.</span>
       </div>
-      <p class="cta-title">¿Ya viste el masterclass y estás lista?</p>
-      <p class="cta-sub">Déjame tus datos y te mando por WhatsApp el link de registro con los pasos exactos para empezar.</p>
+      <p class="cta-title">¿Lista para empezar?</p>
+      <p class="cta-sub">Déjame tu nombre, correo y WhatsApp — te escribo en menos de 24 horas con el link de registro y los pasos exactos.</p>
       <div class="form">
         <div>
           <label class="sr-only" for="nombre">Tu nombre</label>
@@ -4216,8 +4520,8 @@ identificas con
   </div>
 </section>
 
-<!-- ─────────── FAQ ─────────── -->
-<section class="faq">
+<!-- ─────────── FAQ (original — oculto, reemplazado por faq-vsl arriba) ─────────── -->
+<section class="faq" style="display:none">
   <div class="si">
     <p class="lbl rv">Preguntas frecuentes</p>
     <h2 class="h2 rv">Lo que siempre<br><em>preguntan.</em></h2>
