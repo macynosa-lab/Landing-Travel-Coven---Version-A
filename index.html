@@ -2683,6 +2683,166 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
     display: inline-block;
   }
 
+  /* ═══════════════════════════════════════════
+     VSL — Video Masterclass Section
+     ═══════════════════════════════════════════ */
+
+  .vsl-sec {
+    background: linear-gradient(180deg, var(--amethyst-deep) 0%, var(--amethyst) 100%);
+    padding: 80px 24px 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .vsl-sec::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(194,40,107,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .vsl-inner {
+    position: relative; z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .vsl-pre-title {
+    display: inline-block;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .vsl-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4.5vw, 46px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.12;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+  .vsl-title em {
+    font-style: italic;
+    background: linear-gradient(90deg, var(--gold) 0%, #ffd57e 50%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .vsl-sub {
+    font-size: clamp(15px, 2vw, 18px);
+    color: rgba(255,255,255,0.75);
+    max-width: 620px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+
+  /* Video wrapper */
+  .vsl-video-wrap {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 36px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(250,185,64,0.25);
+    background: #0d0820;
+    position: relative;
+  }
+  .vsl-video-wrap iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    display: block;
+  }
+
+  /* Placeholder (shown when no video yet) */
+  .vsl-placeholder {
+    aspect-ratio: 16 / 9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    cursor: default;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 40%, rgba(194,40,107,0.2) 0%, transparent 70%),
+      linear-gradient(160deg, #160830 0%, #25104D 60%, #3a1060 100%);
+  }
+  .vsl-play-btn {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    border: 2px solid rgba(250,185,64,0.4);
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(4px);
+    opacity: 0.6;
+  }
+  .vsl-play-btn svg {
+    width: 32px; height: 32px;
+    fill: var(--gold);
+    margin-left: 4px;
+  }
+  .vsl-coming {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.02em;
+  }
+  .vsl-coming-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    max-width: 300px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* Post-video CTA */
+  .vsl-after {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .vsl-after-txt {
+    font-size: 17px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.88);
+  }
+  .vsl-note {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    max-width: 400px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  /* Hero scroll-to-video button */
+  .btn-scroll-vsl {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 32px;
+    border-radius: 100px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--amethyst);
+    background: var(--gold);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 8px 32px rgba(250,185,64,0.45);
+  }
+  .btn-scroll-vsl:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(250,185,64,0.6); }
+
+  @media (max-width: 720px) {
+    .vsl-sec { padding: 60px 18px 70px; }
+    .vsl-video-wrap { border-radius: 12px; }
+    .vsl-play-btn { width: 64px; height: 64px; }
+    .vsl-play-btn svg { width: 26px; height: 26px; }
+    .vsl-coming { font-size: 16px; }
+  }
+
 </style>
 
 <script type="application/ld+json">
@@ -2825,7 +2985,7 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
   <div class="nav-logo">
     <img src="assets/travel-coven-logo.png" alt="The Travel Coven">
   </div>
-  <a href="https://wa.me/528681983600?text=Hola%20Macy!%20Vi%20tu%20landing%20y%20quiero%20saber%20m%C3%A1s%20sobre%20The%20Travel%20Coven" class="nav-wa" target="_blank" rel="noopener">Agenda tu sesión informativa</a>
+  <a href="#masterclass" class="nav-wa">Mira el masterclass ↓</a>
 </nav>
 
 <!-- Floating WA -->
@@ -2862,8 +3022,10 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
       Vende viajes desde tu celular, amiga. Genera un <strong>segundo ingreso flexible</strong> que crece a tu ritmo, sin soltar lo que ya tienes.
     </p>
     <div class="hero-cta-stack fade-up d4">
-      <a href="https://wa.me/528681983600?text=Hola%20Macy!%20Vi%20tu%20landing%20y%20quiero%20saber%20m%C3%A1s%20sobre%20The%20Travel%20Coven%20%F0%9F%94%AE" class="btn-wa-primary" target="_blank" rel="noopener">Agenda tu sesión informativa por WhatsApp
-→</a>
+      <a href="#masterclass" class="btn-scroll-vsl">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;flex-shrink:0"><path d="M8 5v14l11-7z"/></svg>
+        Mira el masterclass gratis — 15 min ↓
+      </a>
       <div class="urgency-badge">
         <span class="u-dot"></span>
         Solo acepto 15 mujeres al mes — para seguimiento personalizado
@@ -2876,6 +3038,40 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
         <div class="av">CH</div>
       </div>
       Mujeres que ya tienen su segundo ingreso con este modelo
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── VIDEO MASTERCLASS (VSL) ─────────── -->
+<section class="vsl-sec" id="masterclass">
+  <div class="vsl-inner">
+    <div class="vsl-pre-title">🎬 Masterclass gratuita</div>
+    <h2 class="vsl-title">Todo lo que necesitas saber<br>sobre ser agente de viajes — en <em>15 minutos</em></h2>
+    <p class="vsl-sub">Antes de escribirme, mira este video. Te explico sin rodeos cómo funciona el modelo, cuánto puedes ganar y si esto es para ti.</p>
+
+    <div class="vsl-video-wrap">
+      <!-- ── PLACEHOLDER: cuando tengas el video, reemplaza el div de abajo con:
+           <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID?rel=0&modestbranding=1"
+                   title="Masterclass — Cómo ser agente de viajes con The Travel Coven"
+                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                   allowfullscreen></iframe>
+      ── -->
+      <div class="vsl-placeholder">
+        <div class="vsl-play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <p class="vsl-coming">Video masterclass — próximamente</p>
+        <p class="vsl-coming-sub">Mientras tanto, escríbeme por WhatsApp y te cuento todo.</p>
+      </div>
+    </div>
+
+    <div class="vsl-after">
+      <p class="vsl-after-txt">¿Ya viste el masterclass y estás lista para empezar?</p>
+      <a href="https://wa.me/528681983600?text=Hola%20Macy!%20Ya%20vi%20el%20masterclass%20y%20quiero%20unirme%20al%20Coven%20%F0%9F%94%AE" class="btn-wa-primary" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="white" style="width:20px;height:20px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Ya vi el video — quiero unirme →
+      </a>
+      <p class="vsl-note">Te mando el link de registro y los pasos exactos para empezar. Te respondo en menos de 24 horas.</p>
     </div>
   </div>
 </section>
@@ -3260,7 +3456,7 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
   <div class="si">
     <p class="lbl rv">Cómo funciona</p>
     <h2 class="h2 rv">Simple. En<br><em>tres pasos.</em></h2>
-    <p class="body-text rv">Los detalles los platicamos en la sesión informativa. Aquí lo importante es que entiendas la estructura.</p>
+    <p class="body-text rv">Los detalles los cubro a fondo en el masterclass de 15 minutos — míralo arriba antes de escribirme.</p>
     <div class="paso-list">
       <div class="paso p1">
         <div class="paso-num-box">1</div>
@@ -3978,7 +4174,7 @@ identificas con
   <div class="si">
     <p class="lbl lbl-center rv">El siguiente paso</p>
     <h2 class="h2 rv" style="text-align:center;">Una conversación.<br>Sin <em>compromiso.</em></h2>
-    <p class="body-text rv" style="text-align:center; margin: 0 auto;">Mándame WhatsApp con tu nombre y correo. Agenda una sesión informativa vía zoom y toma la decisión de formar parte del Coven.</p>
+    <p class="body-text rv" style="text-align:center; margin: 0 auto;">Mira el masterclass de 15 minutos arriba, llena el formulario y te mando por WhatsApp el link de registro con todos los pasos para empezar.</p>
     <div class="cta-box rv">
       <div class="cta-sparks">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg>
@@ -3988,8 +4184,8 @@ identificas con
         <span class="fire-icon">🔥</span>
         <span>Solo acepto <strong>15 mujeres al mes</strong> para garantizar mentoría personalizada. Asegura tu lugar este mes.</span>
       </div>
-      <p class="cta-title">¿Lista para tener más de un ingreso?</p>
-      <p class="cta-sub">Déjame tus datos y te contacto en menos de 24 horas.</p>
+      <p class="cta-title">¿Ya viste el masterclass y estás lista?</p>
+      <p class="cta-sub">Déjame tus datos y te mando por WhatsApp el link de registro con los pasos exactos para empezar.</p>
       <div class="form">
         <div>
           <label class="sr-only" for="nombre">Tu nombre</label>
@@ -4083,7 +4279,7 @@ identificas con
     <div class="stickycta-title">¿Lista? <em>Escríbeme.</em></div>
     <div class="stickycta-urg"><span class="pulse"></span>Solo acepto <strong style="margin:0 4px;color:var(--rose);font-weight:700;">15 mujeres al mes</strong> en el equipo</div>
   </div>
-  <a href="https://wa.me/528681983600?text=Hola%20Macy!%20Estoy%20lista%20%F0%9F%94%AE%20Vi%20tu%20landing%20de%20The%20Travel%20Coven%20y%20quiero%20entrar%20al%20equipo." target="_blank" rel="noopener" class="stickycta-btn">Agenda tu sesión informativa ahora</a>
+  <a href="https://wa.me/528681983600?text=Hola%20Macy!%20Ya%20vi%20el%20masterclass%20y%20quiero%20unirme%20al%20Coven%20%F0%9F%94%AE" target="_blank" rel="noopener" class="stickycta-btn">Quiero unirme al Coven →</a>
 </aside>
 
 <script>
