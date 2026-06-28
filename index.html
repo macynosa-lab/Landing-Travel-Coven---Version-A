@@ -163,10 +163,10 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
 
   /* ─────────── HERO ─────────── */
   .hero {
-    position: relative; min-height: 100vh;
+    position: relative; min-height: 90vh;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    padding: 120px 24px 140px;
+    padding: 100px 24px 80px;
     text-align: center;
     background: radial-gradient(ellipse at top, var(--amethyst) 0%, var(--amethyst-deep) 60%, #0A0418 100%);
     overflow: hidden;
@@ -194,6 +194,77 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
   .s6 { top: 78%; left: 42%; width: 16px; height: 16px; animation-delay: 2.3s; color: var(--lavender); }
 
   .hero-inner { position: relative; z-index: 3; max-width: 760px; }
+
+  .hero-photo {
+    position: absolute;
+    bottom: 20px; left: 2vw;
+    z-index: 4;
+    width: clamp(240px, 22vw, 340px);
+    pointer-events: none;
+  }
+  .hero-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 12px 40px rgba(0,0,0,0.5));
+  }
+
+  .hero-mockup {
+    position: absolute;
+    bottom: 40px; right: 3vw;
+    z-index: 4;
+    width: clamp(140px, 13vw, 200px);
+    pointer-events: none;
+    transform: rotate(5deg);
+  }
+  .hero-mockup-phone {
+    background: #111;
+    border-radius: 24px;
+    border: 3px solid rgba(255,255,255,0.15);
+    padding: 10px 6px;
+    box-shadow: 0 16px 60px rgba(0,0,0,0.5);
+    position: relative;
+  }
+  .hero-mockup-phone::before {
+    content: '';
+    position: absolute;
+    top: 6px; left: 50%;
+    transform: translateX(-50%);
+    width: 40px; height: 4px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 10px;
+  }
+  .hero-mockup-screen {
+    background: linear-gradient(180deg, var(--amethyst) 0%, var(--rose-deep) 100%);
+    border-radius: 16px;
+    padding: 32px 12px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .hero-mockup-logo {
+    width: 40px; height: 40px;
+    filter: drop-shadow(0 4px 12px rgba(250,185,64,0.4));
+  }
+  .hero-mockup-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.25;
+  }
+  .hero-mockup-title em { color: var(--gold); font-style: italic; }
+
+  @media (max-width: 1100px) {
+    .hero-photo { width: clamp(200px, 20vw, 280px); }
+    .hero-mockup { width: clamp(120px, 12vw, 170px); }
+  }
+  @media (max-width: 860px) {
+    .hero-photo, .hero-mockup { display: none; }
+  }
 
   .hero-logo {
     margin: 0 auto 28px; width: 130px; animation: float 6s ease-in-out infinite;
@@ -1579,7 +1650,7 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
     .nav { padding: 12px 18px; }
     .nav-logo img { height: 32px; }
     .nav-wa { padding: 8px 14px; font-size: 12px; }
-    .hero { padding: 100px 18px 120px; }
+    .hero { padding: 90px 18px 70px; }
     .hero-logo { width: 100px; }
     .si { padding: 70px 20px; }
     .cta-box { padding: 40px 22px; }
@@ -3235,6 +3306,19 @@ src="https://www.facebook.com/tr?id=968448006100129&ev=PageView&noscript=1"
   <span class="spark s4"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></span>
   <span class="spark s5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></span>
   <span class="spark s6"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L13.5 9 L24 12 L13.5 15 L12 24 L10.5 15 L0 12 L10.5 9 Z"/></svg></span>
+
+  <div class="hero-photo fade-up d3">
+    <img src="assets/macy-stamp.png" alt="Macy Espinosa">
+  </div>
+
+  <div class="hero-mockup fade-up d4">
+    <div class="hero-mockup-phone">
+      <div class="hero-mockup-screen">
+        <img class="hero-mockup-logo" src="assets/travel-coven-logo.png" alt="">
+        <div class="hero-mockup-title">Tu negocio<br><em>100% desde casa</em></div>
+      </div>
+    </div>
+  </div>
 
   <div class="hero-inner">
     <div class="hero-logo fade-up d1">
