@@ -1298,6 +1298,83 @@ body {
 .footer a:hover { text-decoration: underline; }
 
 /* ═══════════════════════════════════════
+   TESTIMONIALS V2
+   ═══════════════════════════════════════ */
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+  align-items: start;
+}
+.testi-card {
+  background: var(--paper);
+  border-radius: 20px;
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.testi-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(37,16,77,0.1); }
+.testi-photo {
+  width: 100%; height: 200px;
+  object-fit: cover; object-position: center top;
+  display: block;
+}
+.testi-body { padding: 20px; }
+.testi-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+  color: var(--rose); background: rgba(194,40,107,0.08);
+  padding: 4px 10px; border-radius: 100px; margin-bottom: 12px;
+}
+.testi-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.testi-before { font-size: 12px; color: var(--ink-mute); margin-bottom: 2px; }
+.testi-before strong, .testi-now strong { font-weight: 600; }
+.testi-now { font-size: 12px; color: var(--rose); font-weight: 600; margin-bottom: 12px; }
+.testi-quote {
+  font-size: 13.5px; color: var(--ink-soft); line-height: 1.6;
+  font-style: italic; border-left: 3px solid var(--gold);
+  padding-left: 12px; margin-bottom: 16px;
+}
+.testi-expand-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: 10px 14px; border-radius: 10px;
+  background: var(--cream); border: 1px solid var(--border);
+  font-size: 13px; font-weight: 600; color: var(--amethyst);
+  cursor: pointer; transition: all .2s ease;
+}
+.testi-expand-btn:hover { background: var(--amethyst); color: #fff; }
+.testi-expand-btn svg { width: 16px; height: 16px; transition: transform .3s ease; flex-shrink: 0; }
+.testi-card.open .testi-expand-btn svg { transform: rotate(180deg); }
+.testi-full {
+  max-height: 0; overflow: hidden;
+  transition: max-height .4s ease, padding .3s ease;
+  padding: 0 20px;
+}
+.testi-card.open .testi-full { max-height: 600px; padding: 0 20px 20px; }
+.testi-full p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 12px; }
+.testi-full p:last-child { margin-bottom: 0; }
+.testi-divider { height: 1px; background: var(--border-soft); margin: 0 20px 12px; }
+
+.testi-cta-box {
+  background: linear-gradient(135deg, var(--amethyst) 0%, var(--amethyst-deep) 100%);
+  border-radius: 20px; padding: 40px 32px; text-align: center; margin-top: 48px;
+}
+.testi-cta-box h3 {
+  font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700;
+  color: #fff; margin-bottom: 24px;
+}
+.testi-cta-box .cta-row { flex-wrap: wrap; gap: 12px; }
+.testi-microcopy { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 16px; }
+
+@media (max-width: 900px) {
+  .testi-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .testi-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════
    UTILITY & RESPONSIVE
    ═══════════════════════════════════════ */
 .text-center { text-align: center; }
@@ -2162,59 +2239,118 @@ body {
      ═══════════════════════════════════════ -->
 <section class="section section-alt" id="testimonios">
   <div class="container">
-    <h2 class="section-title rv">Ellas convirtieron su segundo ingreso<br>en su <span class="holo-text">ingreso principal</span></h2>
-    <p class="section-subtitle rv">Toca cada tarjeta para leer su historia.</p>
+    <h2 class="section-title rv">Historias reales de mujeres<br>que empezaron desde cero</h2>
+    <p class="section-subtitle rv">Cada camino es distinto, pero todas tienen algo en común: decidieron construir una nueva fuente de ingresos alrededor del turismo.</p>
 
-    <div class="testimonial-grid">
-      <div class="testimonial-card rv" onclick="this.classList.toggle('flipped')">
-        <div class="testimonial-inner">
-          <div class="testimonial-front">
-            <div class="testimonial-photo">🌟</div>
-            <h3>Mayra R.</h3>
-            <span class="testimonial-spec">Especialista en cruceros</span>
-            <span class="testimonial-hint">Toca para leer su historia</span>
-          </div>
-          <div class="testimonial-back">
-            <p>"Empecé sin saber nada de viajes. Hoy vendo cruceros cada semana y lo hago desde mi casa mientras mis hijos están en la escuela."</p>
-            <span class="testimonial-name">— Mayra R.</span>
-          </div>
+    <div class="testi-grid">
+
+      <!-- Cris Sánchez -->
+      <div class="testi-card rv">
+        <img src="assets/testi-cris.png" alt="Cris Sánchez" class="testi-photo">
+        <div class="testi-body">
+          <span class="testi-tag">🏃 Para quienes buscan más libertad de tiempo</span>
+          <h3 class="testi-name">Cris Sánchez</h3>
+          <p class="testi-before">Antes: <strong>Trabajaba en oficina buscando un ingreso extra</strong></p>
+          <p class="testi-now">Hoy: <strong>Vive al 100% de su agencia de viajes</strong></p>
+          <blockquote class="testi-quote">"Pasé de trabajar en oficina a construir un negocio que me da libertad para organizar mis horarios y seguir entrenando para mis competencias."</blockquote>
+          <button class="testi-expand-btn" onclick="toggleTesti(this)">
+            Leer historia completa
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+        <div class="testi-divider"></div>
+        <div class="testi-full">
+          <p>Soy Cris y decidí emprender como agente de viajes mientras seguía trabajando en oficina porque necesitaba un ingreso extra.</p>
+          <p>Empecé especializándome en Caribe Mexicano, Disney y Universal, y después me capacité en cruceros con distintas navieras.</p>
+          <p>Hoy este emprendimiento se convirtió en mi trabajo de tiempo completo. Lo que más disfruto es la libertad de organizar mis horarios a mi manera. Me encanta correr y entrenar para competencias, y ahora puedo hacerlo sin descuidar mi trabajo.</p>
+          <p>Ser agente de viajes me permitió generar ingresos mientras construía una vida que también disfruto.</p>
         </div>
       </div>
 
-      <div class="testimonial-card rv" onclick="this.classList.toggle('flipped')">
-        <div class="testimonial-inner">
-          <div class="testimonial-front">
-            <div class="testimonial-photo">✨</div>
-            <h3>Laura M.</h3>
-            <span class="testimonial-spec">Especialista en resorts</span>
-            <span class="testimonial-hint">Toca para leer su historia</span>
-          </div>
-          <div class="testimonial-back">
-            <p>"Lo mejor fue el acompañamiento de Macy. No me sentí sola ni un solo día. Mi primer mes ya tenía mis primeras comisiones."</p>
-            <span class="testimonial-name">— Laura M.</span>
-          </div>
+      <!-- Yess Rodríguez -->
+      <div class="testi-card rv">
+        <img src="assets/testi-yess.jpg" alt="Yess Rodríguez" class="testi-photo">
+        <div class="testi-body">
+          <span class="testi-tag">💼 Para quienes están cansadas de depender de un empleo</span>
+          <h3 class="testi-name">Yess Rodríguez</h3>
+          <p class="testi-before">Antes: <strong>Perdió dos empleos en menos de un año</strong></p>
+          <p class="testi-now">Hoy: <strong>Vive de su agencia y lidera un equipo</strong></p>
+          <blockquote class="testi-quote">"Bendito sea ese despido del 2024. Fue el inicio de una vida con más libertad y un negocio propio."</blockquote>
+          <button class="testi-expand-btn" onclick="toggleTesti(this)">
+            Leer historia completa
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+        <div class="testi-divider"></div>
+        <div class="testi-full">
+          <p>¡Hola! Soy Yess, traductora de profesión.</p>
+          <p>En 2024 me quedé sin empleo y, buscando nuevas opciones, encontré la oportunidad de abrir mi propia agencia de viajes. Al mismo tiempo conseguí otro trabajo godín, pero después de siete meses también terminó.</p>
+          <p>Ahí entendí que no quería seguir brincando de un empleo a otro ni que mi estabilidad dependiera de las decisiones de alguien más.</p>
+          <p>Aposté por mi agencia, seguí capacitándome y empecé a formar un equipo para ayudar a más personas que, como yo, buscaban algo diferente.</p>
+          <p>Hoy disfruto mi tiempo, tengo más oportunidades de viajar y puedo decir que ese despido terminó siendo el inicio de algo mucho mejor. ✨</p>
         </div>
       </div>
 
-      <div class="testimonial-card rv" onclick="this.classList.toggle('flipped')">
-        <div class="testimonial-inner">
-          <div class="testimonial-front">
-            <div class="testimonial-photo">💫</div>
-            <h3>Ana G.</h3>
-            <span class="testimonial-spec">Especialista en Disney</span>
-            <span class="testimonial-hint">Toca para leer su historia</span>
-          </div>
-          <div class="testimonial-back">
-            <p>"Tenía miedo de no poder con un segundo trabajo. Pero esto no se siente como trabajo. Se siente como compartir algo que amo."</p>
-            <span class="testimonial-name">— Ana G.</span>
-          </div>
+      <!-- Mariana Valdés -->
+      <div class="testi-card rv">
+        <img src="assets/testi-mariana.png" alt="Mariana Valdés" class="testi-photo">
+        <div class="testi-body">
+          <span class="testi-tag">✈️ Para quienes quieren convertir su pasión en profesión</span>
+          <h3 class="testi-name">Mariana Valdés</h3>
+          <p class="testi-before">Antes: <strong>Ingeniera en una empresa internacional</strong></p>
+          <p class="testi-now">Hoy: <strong>Vive de su pasión y acompaña a nuevos agentes</strong></p>
+          <blockquote class="testi-quote">"Convertí mi pasión por viajar en mi profesión, y ahora también acompaño a otras personas a construir la suya."</blockquote>
+          <button class="testi-expand-btn" onclick="toggleTesti(this)">
+            Leer historia completa
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+        <div class="testi-divider"></div>
+        <div class="testi-full">
+          <p>Soy Mariana Valdés, fundadora de Arima Tours.</p>
+          <p>Antes trabajaba como ingeniera en una empresa internacional, pero mi pasión por viajar y organizar experiencias terminó convirtiéndose en mi profesión.</p>
+          <p>Hoy ayudo a familias, parejas y viajeros a planear experiencias inolvidables, desde playas mexicanas hasta viajes internacionales y cruceros.</p>
+          <p>Además, acompaño a personas que quieren iniciar como agentes de viajes independientes, incluso si empiezan desde cero.</p>
+          <p>Creo firmemente que no necesitas tener todo resuelto para empezar; solo darte la oportunidad de intentarlo.</p>
         </div>
       </div>
+
+      <!-- Consuelo José -->
+      <div class="testi-card rv">
+        <img src="assets/testi-consuelo.png" alt="Consuelo José" class="testi-photo">
+        <div class="testi-body">
+          <span class="testi-tag">👨‍👩‍👧 Para quienes buscan estabilidad para su familia</span>
+          <h3 class="testi-name">Consuelo José</h3>
+          <p class="testi-before">Antes: <strong>Ingeniera Química durante 12 años</strong></p>
+          <p class="testi-now">Hoy: <strong>Vive al 100% de su agencia de viajes</strong></p>
+          <blockquote class="testi-quote">"Este negocio no solo paga las cuentas de mi hogar; también me dio la confianza para descubrir de lo que soy capaz."</blockquote>
+          <button class="testi-expand-btn" onclick="toggleTesti(this)">
+            Leer historia completa
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+        <div class="testi-divider"></div>
+        <div class="testi-full">
+          <p>Hace cuatro años buscaba una forma de generar ingresos desde casa.</p>
+          <p>No tenía experiencia en turismo; estudié Ingeniería Química y trabajé durante doce años en esa profesión. Empecé desde cero, apoyándome en un programa de capacitación y acompañamiento.</p>
+          <p>Lo que comenzó como una alternativa para darle estabilidad a mi familia terminó transformando mi vida.</p>
+          <p>Hoy vivo al 100% de este negocio. Gracias a él pago las cuentas de mi hogar, tengo flexibilidad para estar con mi familia y, sobre todo, descubrí que era capaz de construir una vida diferente.</p>
+        </div>
+      </div>
+
     </div>
 
-    <div class="cta-row rv">
-      <a href="#final" class="btn btn-primary btn-lg">Yo también quiero empezar</a>
+    <!-- CTA post-testimonios -->
+    <div class="testi-cta-box rv">
+      <h3>¿Te viste reflejada en alguna historia?</h3>
+      <div class="cta-row">
+        <a href="#" class="btn btn-gold btn-lg" onclick="openVideoModal(); return false;">🎥 Ver Masterclass</a>
+        <a href="https://wa.me/528681983600?text=Hola%20Macy!%20Me%20identifiqué%20con%20una%20de%20las%20historias%20y%20quiero%20saber%20más%20%E2%9C%A8" target="_blank" rel="noopener" class="btn btn-wa btn-lg">💬 Hablar con Macy</a>
+        <a href="#final" class="btn btn-ghost btn-lg">📅 Agendar sesión informativa</a>
+      </div>
+      <p class="testi-microcopy">No tienes que tener todo resuelto para empezar. Solo necesitas dar el primer paso.</p>
     </div>
+
   </div>
 </section>
 
@@ -2364,7 +2500,7 @@ body {
      FOOTER
      ═══════════════════════════════════════ -->
 <footer class="footer">
-  <p>The Travel Coven con Macy Espinosa &middot; <a href="https://www.instagram.com/macytravelez?igsh=MW9sZTJkdXcwMDZ3OA%3D%3D&utm_source=qr" target="_blank" rel="noopener">@macytravelez</a> &middot; coven.travelez.com.mx</p>
+  <p>The Travel Coven con Macy Espinosa &middot; <a href="https://www.instagram.com/thetravelcovenmx/" target="_blank" rel="noopener">@thetravelcovenmx</a> &middot; coven.travelez.com.mx</p>
 </footer>
 
 <!-- ═══════════════════════════════════════
@@ -2422,6 +2558,14 @@ body {
       const trackWidth = progressFill.parentElement.offsetWidth - 56;
       progressFill.style.width = (fillPct / 100 * trackWidth) + 'px';
     }
+  }
+
+  // ── Testimonial Accordion ──────────────────────────────
+  function toggleTesti(btn) {
+    const card = btn.closest('.testi-card');
+    const isOpen = card.classList.contains('open');
+    document.querySelectorAll('.testi-card.open').forEach(c => c.classList.remove('open'));
+    if (!isOpen) card.classList.add('open');
   }
 
   // ── FAQ Accordion ──────────────────────────────
