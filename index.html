@@ -949,23 +949,77 @@ body {
   justify-content: center;
 }
 .cert-badge {
-  width: 60px; height: 60px;
+  width: 64px; height: 64px;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid var(--border-soft);
   background: var(--paper);
   display: flex; align-items: center; justify-content: center;
   transition: all .3s ease;
+  cursor: pointer;
+  position: relative;
 }
 .cert-badge:hover {
   transform: scale(1.15);
   border-color: var(--gold);
-  box-shadow: 0 4px 16px rgba(250,185,64,0.25);
+  box-shadow: 0 4px 16px rgba(250,185,64,0.35);
+}
+.cert-badge:hover::after {
+  content: '👁';
+  position: absolute;
+  inset: 0;
+  background: rgba(37,16,77,0.65);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  border-radius: 50%;
 }
 .cert-badge img {
   width: 80%; height: 80%;
   object-fit: contain;
 }
+
+/* Cert lightbox */
+.cert-lightbox {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(22,8,48,0.92);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s ease;
+}
+.cert-lightbox.open { opacity: 1; pointer-events: all; }
+.cert-lightbox-inner {
+  position: relative;
+  max-width: 680px; width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  transform: scale(0.92);
+  transition: transform .3s ease;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+}
+.cert-lightbox.open .cert-lightbox-inner { transform: scale(1); }
+.cert-lightbox-inner img {
+  width: 100%; height: auto; display: block;
+}
+.cert-lightbox-name {
+  padding: 14px 20px;
+  background: var(--amethyst);
+  color: #fff;
+  font-size: 14px; font-weight: 600;
+  text-align: center;
+}
+.cert-lightbox-close {
+  position: absolute; top: 12px; right: 14px;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  border: none; cursor: pointer;
+  font-size: 18px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--amethyst); font-weight: 700;
+  transition: all .2s ease;
+}
+.cert-lightbox-close:hover { background: #fff; transform: scale(1.1); }
 
 /* ═══════════════════════════════════════
    SECTION 7: INCOME POTENTIAL
@@ -2008,22 +2062,22 @@ body {
 
         <p style="font-size:13px; color:var(--ink-mute); font-weight:500; margin-bottom:12px;">Certificaciones:</p>
         <div class="cert-grid">
-          <div class="cert-badge" title="Archer Travel Group">
+          <div class="cert-badge" title="Archer Travel Group" onclick="openCert('assets/cert-archer-full.png','Certificación Archer Travel Group')">
             <img src="assets/archer-logo.webp" alt="Archer Travel">
           </div>
-          <div class="cert-badge" title="Royal Caribbean">
+          <div class="cert-badge" title="Royal Caribbean Expert" onclick="openCert('assets/cert-royal-full.png','Royal Caribbean Expert 2026')">
             <img src="assets/royal-caribbean.webp" alt="Royal Caribbean">
           </div>
-          <div class="cert-badge" title="Universal Destinations & Experiences">
+          <div class="cert-badge" title="Universal Destinations & Experiences" onclick="openCert('assets/cert-universal-full.png','Universal Destinations & Experiences')">
             <img src="assets/universal-dx.webp" alt="Universal D&E">
           </div>
-          <div class="cert-badge" title="Disney College">
+          <div class="cert-badge" title="Disney College of Knowledge" onclick="openCert('assets/cert-disney-full.png','Disney College of Knowledge')">
             <img src="assets/disney-college.jpg" alt="Disney College">
           </div>
-          <div class="cert-badge" title="Agentblazer">
+          <div class="cert-badge" title="Agentblazer Champion" onclick="openCert('assets/agentblazer-badge.png','Agentblazer Champion · Salesforce IA')">
             <img src="assets/agentblazer-badge.png" alt="Agentblazer">
           </div>
-          <div class="cert-badge" title="Virgin Voyages">
+          <div class="cert-badge" title="Virgin Voyages Seacademy Violet" onclick="openCert('assets/cert-virgin-full.png','Virgin Voyages Seacademy · Nivel Violet')">
             <img src="assets/virgin-voyages-cert.png" alt="Virgin Voyages">
           </div>
         </div>
@@ -2562,6 +2616,17 @@ body {
 <!-- ═══════════════════════════════════════
      FOOTER
      ═══════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════
+     CERT LIGHTBOX
+     ═══════════════════════════════════════ -->
+<div class="cert-lightbox" id="cert-lightbox" onclick="if(event.target===this)closeCert()">
+  <div class="cert-lightbox-inner">
+    <button class="cert-lightbox-close" onclick="closeCert()">✕</button>
+    <img id="cert-lightbox-img" src="" alt="">
+    <div class="cert-lightbox-name" id="cert-lightbox-name"></div>
+  </div>
+</div>
+
 <footer class="footer">
   <p>The Travel Coven con Macy Espinosa &middot; <a href="https://www.instagram.com/thetravelcovenmx/" target="_blank" rel="noopener">@thetravelcovenmx</a> &middot; coven.travelez.com.mx</p>
 </footer>
@@ -2622,6 +2687,21 @@ body {
       progressFill.style.width = (fillPct / 100 * trackWidth) + 'px';
     }
   }
+
+  // ── Cert Lightbox ──────────────────────────────
+  function openCert(src, name) {
+    document.getElementById('cert-lightbox-img').src = src;
+    document.getElementById('cert-lightbox-name').textContent = name;
+    document.getElementById('cert-lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCert() {
+    document.getElementById('cert-lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeCert();
+  });
 
   // ── Testimonial Accordion ──────────────────────────────
   function toggleTesti(btn) {
