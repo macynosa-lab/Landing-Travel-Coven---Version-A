@@ -794,6 +794,39 @@ body {
 }
 
 /* ═══════════════════════════════════════
+   TRAVEL CAROUSEL
+   ═══════════════════════════════════════ */
+.travel-carousel {
+  overflow: hidden;
+  width: 100%;
+  padding: 8px 0;
+}
+.travel-carousel-track {
+  display: flex;
+  gap: 16px;
+  animation: carouselScroll 28s linear infinite;
+  width: max-content;
+}
+.travel-carousel-track:hover { animation-play-state: paused; }
+.travel-carousel-track img {
+  height: 280px;
+  width: auto;
+  min-width: 220px;
+  max-width: 360px;
+  object-fit: cover;
+  border-radius: 16px;
+  flex-shrink: 0;
+  display: block;
+}
+@keyframes carouselScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@media (max-width: 640px) {
+  .travel-carousel-track img { height: 200px; min-width: 160px; }
+}
+
+/* ═══════════════════════════════════════
    SECTION 5: QUE INCLUYE (FLIP CARDS)
    ═══════════════════════════════════════ */
 .flip-grid {
@@ -2007,9 +2040,22 @@ body {
      VISUAL BREAK: CAROUSEL
      ═══════════════════════════════════════ -->
 <div class="visual-break">
-  <div class="carousel-placeholder rv">
-    <span>🌴</span>
-    Carrusel de fotos de viajes — placeholder
+  <div class="travel-carousel">
+    <div class="travel-carousel-track">
+      <img src="assets/viaje-1.jpg" alt="Jardines de Giverny, París">
+      <img src="assets/viaje-6.jpg" alt="Vista de la ciudad desde lo alto">
+      <img src="assets/viaje-2.jpg" alt="Surf en el mar">
+      <img src="assets/viaje-4.jpg" alt="Resort en el Caribe">
+      <img src="assets/viaje-3.jpg" alt="Nieve en las montañas">
+      <img src="assets/viaje-5.jpg" alt="Playa al atardecer">
+      <!-- duplicado para loop infinito -->
+      <img src="assets/viaje-1.jpg" alt="Jardines de Giverny, París">
+      <img src="assets/viaje-6.jpg" alt="Vista de la ciudad desde lo alto">
+      <img src="assets/viaje-2.jpg" alt="Surf en el mar">
+      <img src="assets/viaje-4.jpg" alt="Resort en el Caribe">
+      <img src="assets/viaje-3.jpg" alt="Nieve en las montañas">
+      <img src="assets/viaje-5.jpg" alt="Playa al atardecer">
+    </div>
   </div>
 </div>
 
